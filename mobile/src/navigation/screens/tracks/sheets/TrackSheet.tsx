@@ -221,7 +221,7 @@ function QueueActions({ id, name }: Record<"id" | "name", string>) {
 //#endregion
 
 //#region Track Sheet Helpers
-function Badge(props: { icon?: SupportedIconName; children: string }) {
+export function Badge(props: { icon?: SupportedIconName; children: string }) {
   return (
     <View className="flex-row items-center gap-1 rounded-[6px] bg-surfaceContainerHigh px-2 py-1">
       {props.icon ? <Icon name={props.icon} size={14} /> : null}

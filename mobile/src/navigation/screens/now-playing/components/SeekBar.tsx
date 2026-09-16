@@ -19,11 +19,13 @@ import { Seconds } from "~/utils/date";
 import { clamp } from "~/utils/number";
 import { CachedSlider } from "~/components/Form/Slider";
 import { Em } from "~/components/Typography/StyledText";
+import { Badge } from "~/navigation/screens/tracks/sheets/TrackSheet";
 
 interface SeekBarProps {
   id: string;
   uri: string;
   trackLength: number;
+  format: string;
 }
 
 export function SeekBar(props: SeekBarProps) {
@@ -34,6 +36,10 @@ export function SeekBar(props: SeekBarProps) {
   const timedPosition = useAtomValue(animatedPositionAtom);
   const setIsSeeking = useSetAtom(isSeekingAtom);
   const renderedPos = useAtomValue(renderedPositionAtom);
+
+  const showFormat = usePreferenceStore((s) => s.showFormat);
+  const format = props.format
+  const shouldShowFormat = showFormat && format.length > 0
 
   const sharedSliderOptions = useMemo(
     () => ({
@@ -77,6 +83,11 @@ export function SeekBar(props: SeekBarProps) {
       )}
       <View className="flex-row justify-between rtl:flex-row-reverse">
         <Em>{Seconds.toReadableTime(clampedPos)}</Em>
+        {/* Reverse space for format and control it via opacity
+        so that there is no visual shift/jump when toggled */}
+        <View className={`${shouldShowFormat ? 'opacity-100' : 'opacity-0'}`}>
+          <Badge>{shouldShowFormat ? format.toUpperCase() : ""}</Badge>
+        </View>
         <Em>{Seconds.toReadableTime(props.trackLength)}</Em>
       </View>
     </View>

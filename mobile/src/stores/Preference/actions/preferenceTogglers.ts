@@ -12,6 +12,7 @@ import { playbackStore } from "../../Playback/store";
 import { getAudioBrowserOptions } from "~/lib/react-native-audio-browser";
 
 type ToggleableKey =
+  | "showFormat"
   | "alternativeInfoLayout"
   | "atmosphereEffect"
   | "checkForUpdates"

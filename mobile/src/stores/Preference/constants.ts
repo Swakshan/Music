@@ -87,6 +87,8 @@ export interface PreferenceStore {
   standardVinylSpeed: boolean;
   /** Type of seekbar rendered on Now Playing screen. */
   seekbarDesign: SeekbarDesign;
+    /** If we display format info on Now Playing screen. */
+  showFormat: boolean;
 
   /** If we use `contentFit="cover"` for artwork. */
   squareArtwork: boolean;

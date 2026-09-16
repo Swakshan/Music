@@ -63,6 +63,7 @@ export default function NowPlaying() {
                     id={track.id}
                     uri={track.uri}
                     trackLength={track.duration}
+                    format={track.format ? track.format : "" }
                   />
                   <PlaybackControls />
                 </View>

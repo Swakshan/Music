@@ -24,9 +24,19 @@ export function AppearanceSheet(props: { ref: TrueSheetRef }) {
   );
   const standardVinylSpeed = usePreferenceStore((s) => s.standardVinylSpeed);
   const seekbarDesign = usePreferenceStore((s) => s.seekbarDesign);
+  const showFormat = usePreferenceStore((s) => s.showFormat);
 
   return (
     <DetachedSheet ref={props.ref}>
+      <SheetLabelAction
+        labelKey="feat.seekbar.extra.showFormat"
+        Trailing={
+          <SwitchInput
+            enabled={showFormat}
+            onPress={PreferenceTogglers.toggleKey("showFormat")}
+          />
+        }
+      />
       <SheetLabelAction
         labelKey="feat.nowPlayingDesign.extra.alternativeInfoLayout"
         Trailing={

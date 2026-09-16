@@ -192,7 +192,8 @@
 
         "waveformPurgeCache": "Purge Cached Waveforms",
         "waveformPurgeCacheBrief": "Frees up storage to recalculate the waveforms of played tracks.",
-        "waveformPurgeCacheToast": "Waveform cache cleared."
+        "waveformPurgeCacheToast": "Waveform cache cleared.",
+        "showFormat": "Show format info"
       }
     },
     "language": {
